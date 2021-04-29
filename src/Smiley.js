@@ -9,10 +9,7 @@ const Smiley = (props) => {
     props.title.indexOf(props.search) === -1
   ) {
     isEnabled = "none";
-    props.setHideEl(props.countHide + 1);
   }
-
-  console.log(props.countHide, props.totalEl);
 
   return (
     <div

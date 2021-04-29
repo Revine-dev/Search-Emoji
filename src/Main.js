@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const Main = () => {
   const [search, setSearch] = useState(false);
-  const [countHide, setHideEl] = useState(0);
+  const [data, setEl] = useState(Smileys);
 
   return (
     <main>
@@ -23,9 +23,9 @@ const Main = () => {
               key={i}
               {...emoji}
               search={search}
-              countHide={countHide}
-              setHideEl={setHideEl}
-              totalEl={Smileys.length}
+              data={data}
+              setEl={setEl}
+              id={i}
             />
           );
         })}
