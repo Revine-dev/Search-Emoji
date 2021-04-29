@@ -1,1 +1,115 @@
 /* Other rules */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+
+body {
+  font-family: "Open Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+main {
+  margin: auto;
+  width: 800px;
+}
+
+main form {
+  margin: auto;
+  width: 60%;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+main form input {
+  background: #f8efef;
+  border: 1px solid #dcc8c8;
+  box-sizing: border-box;
+  border-radius: 3px;
+  padding: 8px;
+  width: 100%;
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.smileys {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 20px;
+}
+
+.smileys .smiley {
+  background: #fcfbfb;
+  border: 1px solid #dcc8c8;
+  box-sizing: border-box;
+  border-radius: 3px;
+  background: #fcfbfb;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: calc(50% - 5px);
+  margin-right: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.smileys .smiley:hover {
+  background: #f8efef;
+}
+
+.smileys .smiley[data-copy]::after {
+  content: attr(data-copy);
+  position: absolute;
+  right: 8px;
+  font-size: 15px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.smileys .smiley[data-copy]:hover::after {
+  opacity: 1;
+}
+
+.smileys .icon {
+  margin-right: 10px;
+  padding-left: 5px;
+}
+
+.smileys .title {
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  max-width: 260px;
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 25px;
+  }
+  main {
+    padding: 10px;
+    width: auto;
+  }
+  main form,
+  .smileys .smiley,
+  .smileys .smiley .title {
+    width: 100%;
+    margin-right: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .smileys .smiley[data-copy]:hover::after {
+    opacity: 0;
+  }
+}
