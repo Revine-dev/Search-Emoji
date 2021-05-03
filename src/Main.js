@@ -3,8 +3,17 @@ import Smiley from "./Smiley";
 import { useState } from "react";
 
 const Main = () => {
-  const [search, setSearch] = useState(false);
-  const [data, setEl] = useState(Smileys);
+  const [data, setData] = useState(Smileys);
+
+  const searchEl = (e) => {
+    let newData = [];
+    for (let i = 0; i < Smileys.length; i++) {
+      if (Smileys[i].keywords.indexOf(e.target.value.toLowerCase()) !== -1) {
+        newData.push(Smileys[i]);
+      }
+    }
+    setData(newData);
+  };
 
   return (
     <main>
@@ -13,22 +22,18 @@ const Main = () => {
           type="text"
           name="search"
           placeholder="What emoji are you looking for ?"
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={searchEl}
         />
       </form>
       <section className="smileys">
-        {Smileys.map((emoji, i) => {
-          return (
-            <Smiley
-              key={i}
-              {...emoji}
-              search={search}
-              data={data}
-              setEl={setEl}
-              id={i}
-            />
-          );
+        {data.map((emoji, i) => {
+          return <Smiley key={i} {...emoji} nbFound={data.length} />;
         })}
+        {data.length === 0 && (
+          <div style={{ textAlign: "center", width: "100%" }}>
+            No smiley found
+          </div>
+        )}
       </section>
     </main>
   );
