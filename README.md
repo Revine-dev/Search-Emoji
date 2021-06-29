@@ -1,8 +1,6 @@
 # Search Emoji
 
-Creation of Search Emoji
-
-🗄 Backend : ❌
+Search Emoji made with React
 
 📱 Responsive : ✅
 
